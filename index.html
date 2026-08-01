@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Girlfriend Day ❤️</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- ========================================= -->
+<!-- LOADER -->
+<!-- ========================================= -->
+
+<div id="loader">
+
+    <div class="loader-heart">❤️</div>
+
+    <h1>Happy Girlfriend Day</h1>
+
+    <p>Loading your surprise...</p>
+
+</div>
+
+<!-- ========================================= -->
+<!-- BACKGROUND -->
+<!-- ========================================= -->
+
+<div id="background">
+
+    <div id="stars"></div>
+
+    <div id="sparkles"></div>
+
+    <div id="hearts"></div>
+
+    <div id="petals"></div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- MUSIC BUTTON -->
+<!-- ========================================= -->
+
+<button id="musicBtn">
+
+    <i class="fa-solid fa-volume-high"></i>
+
+</button>
+
+<audio id="bgMusic" loop>
+
+    <source src="assets/music.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- ========================================= -->
+<!-- HOME PAGE -->
+<!-- ========================================= -->
+
+<section id="home">
+
+    <div class="home-content">
+
+        <h3>Hello ❤️</h3>
+
+        <h1>Happy Girlfriend Day</h1>
+
+        <p>
+
+            I made a little surprise especially for you.
+
+        </p>
+
+        <button id="startBtn">
+
+            Open Surprise ❤️
+
+        </button>
+
+        <button id="shareBtn">
+
+            Share Surprise ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- SHARE PAGE -->
+<!-- ========================================= -->
+
+<section id="sharePage">
+
+    <div class="share-content">
+
+        <h2>Share the Surprise</h2>
+
+        <p>Scan this QR code or copy the link to open the surprise on another device.</p>
+
+        <div id="qrCode"></div>
+
+        <div class="share-link">
+            <input id="shareUrlInput" readonly>
+            <p id="shareWarning"></p>
+        </div>
+
+        <button id="copyLinkBtn">Copy Link</button>
+
+        <button id="backHomeBtn">Back Home</button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- GIFT PAGE -->
+<!-- ========================================= -->
+
+<section id="giftPage">
+
+    <h2>I Have Something For You 🎁</h2>
+
+    <div class="gift-box" id="giftBox">
+
+        <div class="gift-top"></div>
+
+        <div class="gift-body"></div>
+
+        <div class="gift-ribbon-v"></div>
+
+        <div class="gift-ribbon-h"></div>
+
+    </div>
+
+    <p>Click the Gift ❤️</p>
+
+</section>
+
+<!-- ========================================= -->
+<!-- ENVELOPE PAGE -->
+<!-- ========================================= -->
+
+<section id="letterPage">
+
+    <div class="envelope" id="envelope">
+
+        <div class="flap"></div>
+
+        <div class="cover"></div>
+
+        <div class="letter">
+
+            <h2>My Love ❤️</h2>
+
+            <p id="typing"></p>
+
+            <button id="nextBtn">
+
+                Continue ❤️
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- GALLERY PAGE -->
+<!-- ========================================= -->
+
+<section id="galleryPage">
+
+    <h2>Our Beautiful Memories ❤️</h2>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="assets/img1.jpg" alt="Memory 1">
+        </div>
+
+        <div class="photo">
+            <img src="assets/img2.jpg" alt="Memory 2">
+        </div>
+
+        <div class="photo">
+            <img src="assets/img3.jpg" alt="Memory 3">
+        </div>
+
+        <div class="photo">
+            <img src="assets/img4.jpg" alt="Memory 4">
+        </div>
+
+        <div class="photo">
+            <img src="assets/img5.jpg" alt="Memory 5">
+        </div>
+
+        <div class="photo">
+            <img src="assets/img6.jpg" alt="Memory 6">
+        </div>
+
+    </div>
+
+    <button id="galleryBtn">
+
+        Continue ❤️
+
+    </button>
+
+</section>
+
+<!-- ========================================= -->
+<!-- LOVE MESSAGE PAGE -->
+<!-- ========================================= -->
+
+<section id="messagePage">
+
+    <div class="message-card">
+
+        <h1>For You ❤️</h1>
+
+        <p>
+            Every moment with you is a beautiful memory.
+        </p>
+
+        <p>
+            Thank you for your love, your care,
+            your support and your beautiful smile.
+        </p>
+
+        <p>
+            You make my life brighter every single day.
+        </p>
+
+        <p>
+            I hope this little surprise makes you smile.
+        </p>
+
+        <h3>❤️ Forever Yours ❤️</h3>
+
+        <button id="finalBtn">
+
+            Final Surprise ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FINAL PAGE -->
+<!-- ========================================= -->
+
+<section id="finalPage">
+
+    <div class="final-content">
+
+        <h1>I LOVE YOU ❤️</h1>
+
+        <h2>Happy Girlfriend Day ❤️</h2>
+
+        <p>
+            No matter where life takes us...
+        </p>
+
+        <p>
+            I will always love you.
+        </p>
+
+        <p>
+            Today ❤️ Tomorrow ❤️ Forever ❤️
+        </p>
+
+        <button id="restartBtn">
+
+            Replay ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FLOATING EFFECTS -->
+<!-- ========================================= -->
+
+<div id="heartContainer"></div>
+
+<div id="butterflyContainer"></div>
+
+<div id="petalContainer"></div>
+
+<div id="sparkleContainer"></div>
+
+<canvas id="confetti"></canvas>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

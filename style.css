@@ -1,0 +1,1318 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+    overflow:hidden;
+    width:100%;
+    height:100vh;
+    color:#fff;
+    background:#ffb6d9;
+
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+#background{
+
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #ffd6e8,
+        #ffb3d9,
+        #ff8fc2,
+        #ff6fae,
+        #ff8fc2,
+        #ffd6e8
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 15s ease infinite;
+
+}
+
+@keyframes bgMove{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+/* ==========================================
+   LOADER
+========================================== */
+
+#loader{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:#ff6fae;
+
+    z-index:9999;
+
+    transition:1s;
+
+}
+
+.loader-heart{
+
+    font-size:90px;
+
+    animation:beat 1s infinite;
+
+}
+
+#loader h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:50px;
+
+    margin-top:20px;
+
+}
+
+#loader p{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+}
+
+@keyframes beat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================================
+   MUSIC BUTTON
+========================================== */
+
+#musicBtn{
+
+    position:fixed;
+
+    top:25px;
+
+    right:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff3d8d;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    transition:.3s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+section{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    transition:.8s;
+
+}
+
+/* Show Home */
+
+#home{
+
+    display:flex;
+    opacity:1;
+
+}
+
+/* ==========================================
+   HOME
+========================================== */
+
+.home-content{
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:700px;
+
+}
+
+.home-content h3{
+
+    font-size:30px;
+
+}
+
+.home-content h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:80px;
+
+    margin:20px 0;
+
+    text-shadow:0 0 25px rgba(255,255,255,.4);
+
+}
+
+.home-content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+#startBtn{
+
+    margin-top:40px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#ff2f7b;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#startBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+#qrCode{
+
+    margin: 20px auto 0;
+
+    width: 220px;
+
+    height: 220px;
+
+    padding: 16px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.08);
+
+    box-shadow: inset 0 0 25px rgba(255,255,255,0.08);
+
+}
+
+#sharePage{
+
+    display:none;
+
+    text-align:center;
+
+}
+
+.share-content{
+
+    width:90%;
+
+    max-width:520px;
+
+    background:rgba(255,255,255,0.12);
+
+    border-radius:30px;
+
+    padding:40px 30px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.2);
+
+}
+
+.share-content h2{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+}
+
+.share-content p{
+
+    color:#f6e5f4;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.share-link{
+
+    margin-top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+#shareUrlInput{
+
+    width:100%;
+
+    max-width:420px;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.18);
+
+    color:white;
+
+    font-size:16px;
+
+    text-align:center;
+
+}
+
+#shareUrlInput:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 3px rgba(255,255,255,0.2);
+
+}
+
+#shareWarning{
+
+    color:#ffe1f2;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    max-width:420px;
+
+}
+
+#copyLinkBtn,
+#backHomeBtn,
+#shareBtn{
+
+    margin-top:25px;
+
+    padding:15px 38px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#ff3d8d;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#copyLinkBtn:hover,
+#backHomeBtn:hover,
+#shareBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==========================================
+   GIFT PAGE
+========================================== */
+
+#giftPage{
+
+    display:none;
+    text-align:center;
+
+}
+
+#giftPage h2{
+
+    font-size:50px;
+    font-family:"Great Vibes",cursive;
+    margin-bottom:40px;
+
+}
+
+.gift-box{
+
+    width:220px;
+    height:220px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    animation:giftBounce 2s infinite;
+
+}
+
+@keyframes giftBounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+.gift-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:220px;
+    height:150px;
+
+    background:#ff4f9a;
+
+    border-radius:0 0 12px 12px;
+
+    box-shadow:0 20px 35px rgba(0,0,0,.25);
+
+}
+
+.gift-top{
+
+    position:absolute;
+
+    width:220px;
+    height:45px;
+
+    top:30px;
+
+    background:#ff76b7;
+
+    border-radius:12px;
+
+    transition:.8s;
+
+    transform-origin:left bottom;
+
+}
+
+.gift-ribbon-v{
+
+    position:absolute;
+
+    left:102px;
+
+    width:16px;
+    height:220px;
+
+    background:white;
+
+}
+
+.gift-ribbon-h{
+
+    position:absolute;
+
+    top:92px;
+
+    width:220px;
+    height:16px;
+
+    background:white;
+
+}
+
+.gift-box.open .gift-top{
+
+    transform:
+    rotate(-28deg)
+    translate(-45px,-35px);
+
+}
+
+/* ==========================================
+   LETTER PAGE
+========================================== */
+
+#letterPage{
+
+    display:none;
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:420px;
+    height:280px;
+
+    cursor:pointer;
+
+}
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#ff4f9a;
+
+    border-radius:15px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.flap{
+
+    position:absolute;
+
+    width:100%;
+    height:150px;
+
+    background:#ff79ba;
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+
+.letter{
+
+    position:absolute;
+
+    left:20px;
+    right:20px;
+
+    bottom:20px;
+
+    height:220px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    color:#444;
+
+    text-align:center;
+
+    transform:translateY(130px);
+
+    transition:1s;
+
+    overflow:hidden;
+
+}
+
+.letter h2{
+
+    color:#ff3d8d;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+#typing{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    white-space:pre-line;
+
+}
+
+.envelope.open .flap{
+
+    transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+    transform:translateY(-120px);
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+#nextBtn,
+#galleryBtn,
+#finalBtn,
+#restartBtn{
+
+    margin-top:25px;
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#ff3d8d;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#nextBtn:hover,
+#galleryBtn:hover,
+#finalBtn:hover,
+#restartBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==========================================
+   GALLERY PAGE
+========================================== */
+
+#galleryPage{
+
+    display:none;
+
+    min-height:100vh;
+
+    width:100%;
+
+    padding:80px 30px;
+
+    background:linear-gradient(180deg,#1b0012,#090003);
+
+    text-align:center;
+
+    overflow-y:auto;
+
+}
+
+#galleryPage h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:58px;
+
+    color:#fff;
+
+    margin-bottom:10px;
+
+    text-shadow:0 0 20px hotpink;
+
+}
+
+#galleryPage .subtitle{
+
+    color:#bbb;
+
+    font-size:16px;
+
+    letter-spacing:2px;
+
+    margin-bottom:50px;
+
+}
+
+/* ==========================================
+   GALLERY GRID
+========================================== */
+
+.gallery{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+    justify-items:center;
+
+}
+
+/* ==========================================
+   POLAROID CARD
+========================================== */
+
+.photo{
+
+    width:180px;
+
+    background:#fff;
+
+    padding:12px 12px 20px;
+
+    border-radius:8px;
+
+    box-shadow:0 18px 35px rgba(0,0,0,.45);
+
+    transition:.4s ease;
+
+    cursor:pointer;
+
+}
+
+/* Different Rotations */
+
+.photo:nth-child(1){
+
+    transform:rotate(-5deg);
+
+}
+
+.photo:nth-child(2){
+
+    transform:rotate(3deg);
+
+}
+
+.photo:nth-child(3){
+
+    transform:rotate(-2deg);
+
+}
+
+.photo:nth-child(4){
+
+    transform:rotate(4deg);
+
+}
+
+.photo:nth-child(5){
+
+    transform:rotate(-3deg);
+
+}
+
+.photo:nth-child(6){
+
+    transform:rotate(2deg);
+
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.photo img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:3px;
+
+    transition:.4s;
+
+}
+
+/* ==========================================
+   CAPTION
+========================================== */
+
+.photo p{
+
+    margin-top:12px;
+
+    color:#444;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.photo:hover{
+
+    transform:scale(1.08) rotate(0deg);
+
+    box-shadow:0 25px 45px rgba(255,20,147,.45);
+
+    z-index:10;
+
+}
+
+.photo:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    .gallery{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .photo{
+
+        width:220px;
+
+    }
+
+}
+
+/* ==========================================
+   MESSAGE PAGE
+========================================== */
+
+#messagePage{
+    display:none;
+}
+
+.message-card{
+
+    width:700px;
+    max-width:90%;
+
+    background:white;
+
+    color:#444;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.message-card h1{
+
+    color:#ff3d8d;
+
+    font-size:50px;
+
+    font-family:"Great Vibes",cursive;
+
+    margin-bottom:20px;
+
+}
+
+.message-card p{
+
+    margin:15px 0;
+
+    line-height:1.8;
+
+}
+
+.message-card h3{
+
+    color:#ff3d8d;
+
+    margin-top:25px;
+
+}
+
+/* ==========================================
+   FINAL PAGE
+========================================== */
+
+#finalPage{
+
+    display:none;
+
+    text-align:center;
+
+}
+
+.final-content h1{
+
+    font-size:90px;
+
+    font-family:"Great Vibes",cursive;
+
+    color:white;
+
+    text-shadow:
+    0 0 15px #fff,
+    0 0 30px #f897be;
+
+}
+
+.final-content h2{
+
+    margin:20px 0;
+
+    font-size:35px;
+
+}
+
+.final-content p{
+
+    font-size:22px;
+
+    margin:12px 0;
+
+}
+
+/* ==========================================
+   FLOATING CONTAINERS
+========================================== */
+
+#heartContainer,
+#butterflyContainer,
+#petalContainer,
+#sparkleContainer{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:50;
+
+}
+
+/* Hearts */
+
+.heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+    from{
+
+        transform:
+        translateY(0)
+        scale(.5);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        scale(1.5)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Sparkles */
+
+.sparkle{
+
+    position:absolute;
+
+    color:white;
+
+    animation:sparkle 2s linear forwards;
+
+}
+
+@keyframes sparkle{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.2);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        scale(2)
+        translateY(-60px);
+
+    }
+
+}
+
+/* Butterflies */
+
+.butterfly{
+
+    position:absolute;
+
+    width:60px;
+
+    height:60px;
+
+    background:url("assets/butterfly.png") no-repeat center;
+
+    background-size:contain;
+
+    pointer-events:none;
+
+    animation:flyButterfly linear forwards;
+
+}
+
+@keyframes flyButterfly{
+
+    0%{
+
+        transform:
+        translate(-100px,100vh)
+        rotate(-20deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    25%{
+
+        transform:
+        translate(20vw,70vh)
+        rotate(10deg);
+
+    }
+
+    50%{
+
+        transform:
+        translate(45vw,45vh)
+        rotate(-15deg);
+
+    }
+
+    75%{
+
+        transform:
+        translate(70vw,25vh)
+        rotate(15deg);
+
+    }
+
+    100%{
+
+        transform:
+        translate(110vw,-80px)
+        rotate(-10deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Rose Petals */
+
+.petal{
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    background:#ff4d94;
+
+    border-radius:60% 0 60% 0;
+
+    animation:petalFall 7s linear forwards;
+
+}
+
+@keyframes petalFall{
+
+    from{
+
+        transform:translateY(-50px);
+
+    }
+
+    to{
+
+        transform:
+        translateY(120vh)
+        rotate(720deg);
+
+    }
+
+}
+
+/* ==========================================
+   CONFETTI
+========================================== */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:80;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.home-content h1{
+
+    font-size:55px;
+
+}
+
+.home-content p{
+
+    font-size:18px;
+
+}
+
+.gift-box{
+
+    transform:scale(.8);
+
+}
+
+.envelope{
+
+    width:330px;
+    height:220px;
+
+}
+
+.letter{
+
+    height:180px;
+
+}
+
+.gallery{
+
+    grid-template-columns:1fr;
+
+}
+
+.final-content h1{
+
+    font-size:55px;
+
+}
+
+.final-content h2{
+
+    font-size:28px;
+
+}
+
+.message-card{
+
+    padding:25px;
+
+}
+
+}
