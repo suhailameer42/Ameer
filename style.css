@@ -1067,9 +1067,23 @@ section{
 
 @media(max-width:600px){
 
+    #galleryPage{
+
+        min-height:auto;
+
+        padding:60px 20px 100px;
+
+    }
+
     .gallery{
 
         grid-template-columns:1fr;
+
+        gap:25px;
+
+        max-width:240px;
+
+        margin:0 auto 40px;
 
     }
 
