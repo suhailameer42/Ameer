@@ -1009,6 +1009,8 @@ section{
 
     transition:.4s;
 
+    cursor:pointer;
+
 }
 
 /* ==========================================
@@ -1075,6 +1077,106 @@ section{
 
         width:220px;
 
+    }
+
+}
+
+/* ==========================================
+   LIGHTBOX MODAL
+========================================== */
+
+.lightbox-modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.9);
+
+    z-index:9998;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:fadeIn 0.3s ease;
+
+}
+
+.lightbox-modal.active{
+
+    display:flex;
+
+}
+
+.lightbox-image{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    box-shadow:0 0 40px rgba(255,255,255,0.3);
+
+    animation:zoomIn 0.3s ease;
+
+}
+
+.lightbox-close{
+
+    position:absolute;
+
+    top:30px;
+
+    right:40px;
+
+    color:white;
+
+    font-size:50px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    user-select:none;
+
+}
+
+.lightbox-close:hover{
+
+    color:#ff2f7b;
+
+    transform:scale(1.2);
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
     }
 
 }

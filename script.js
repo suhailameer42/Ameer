@@ -391,6 +391,42 @@ restartBtn.addEventListener("click",()=>{
 
 });
 
+// ==========================================
+// LIGHTBOX - CLICK TO ENLARGE IMAGES
+// ==========================================
+
+const lightboxModal = document.getElementById("lightboxModal");
+const lightboxImage = document.querySelector(".lightbox-image");
+const lightboxClose = document.querySelector(".lightbox-close");
+const photoImages = document.querySelectorAll(".photo img");
+
+// Open lightbox when image is clicked
+photoImages.forEach(img => {
+    img.addEventListener("click", (e) => {
+        lightboxImage.src = e.target.src;
+        lightboxModal.classList.add("active");
+    });
+});
+
+// Close lightbox when X is clicked
+lightboxClose.addEventListener("click", () => {
+    lightboxModal.classList.remove("active");
+});
+
+// Close lightbox when clicking outside the image
+lightboxModal.addEventListener("click", (e) => {
+    if (e.target === lightboxModal) {
+        lightboxModal.classList.remove("active");
+    }
+});
+
+// Close lightbox on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        lightboxModal.classList.remove("active");
+    }
+});
+
 
 // ==========================================
 // HEARTS
