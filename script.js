@@ -14,7 +14,6 @@ const finalPage = document.getElementById("finalPage");
 
 const startBtn = document.getElementById("startBtn");
 const shareBtn = document.getElementById("shareBtn");
-const copyLinkBtn = document.getElementById("copyLinkBtn");
 const backHomeBtn = document.getElementById("backHomeBtn");
 const giftBox = document.getElementById("giftBox");
 const envelope = document.getElementById("envelope");
@@ -26,6 +25,9 @@ const restartBtn = document.getElementById("restartBtn");
 
 const typing = document.getElementById("typing");
 const qrCode = document.getElementById("qrCode");
+const shareUrlInput = document.getElementById("shareUrlInput");
+const copyLinkBtn = document.getElementById("copyLinkBtn");
+const downloadQrBtn = document.getElementById("downloadQrBtn");
 
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
@@ -136,38 +138,107 @@ function openSurpriseFlow(){
 }
 
 let sharedUrl = "";
+window.publicShareUrl = "https://suhailameer42.github.io/Ameer/";
 
-const shareUrlInput = document.getElementById("shareUrlInput");
-const shareWarning = document.getElementById("shareWarning");
+const isLocalHost = window.location.protocol === "file:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const shareHost = isLocalHost ? window.publicShareUrl : `${window.location.origin}${window.location.pathname}`;
+const shareLink = `${shareHost.replace(/\/index\.html$|\/$/, "")}?open=1`;
 
-function createQRCode(){
+function getLocalNetworkIp(){
 
-    sharedUrl = `${window.location.origin}${window.location.pathname}?open=1`;
+    return new Promise((resolve) => {
+        if (!window.RTCPeerConnection) {
+            resolve(null);
+            return;
+        }
 
+        const ips = new Set();
+        const pc = new RTCPeerConnection({
+            iceServers: [{ urls: ["stun:stun.l.google.com:19302"] }]
+        });
+
+        pc.createDataChannel("");
+
+        pc.onicecandidate = (event) => {
+            if (!event.candidate) {
+                pc.close();
+                for (const ip of ips) {
+                    if (!ip.startsWith("127.") && !ip.startsWith("169.254.")) {
+                        resolve(ip);
+                        return;
+                    }
+                }
+                resolve(null);
+                return;
+            }
+
+            const candidate = event.candidate.candidate;
+            const match = candidate.match(/([0-9]{1,3}(?:\.[0-9]{1,3}){3})/);
+            if (match) {
+                ips.add(match[1]);
+            }
+        };
+
+        pc.createOffer()
+            .then((offer) => pc.setLocalDescription(offer))
+            .catch(() => resolve(null));
+    });
+}
+
+function createShareQRCode(){
+    if (!qrCode) return;
     qrCode.innerHTML = "";
 
     new QRCode(qrCode, {
-        text: sharedUrl,
-        width: 200,
-        height: 200,
-        colorDark: "#111",
+        text: shareLink,
+        width: 220,
+        height: 220,
+        colorDark: "#ff2f7b",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
     });
 
     if (shareUrlInput) {
-        shareUrlInput.value = sharedUrl;
-    }
-
-    if (shareWarning) {
-        const hostname = window.location.hostname;
-        if (hostname === "127.0.0.1" || hostname === "localhost" || hostname === "::1") {
-            shareWarning.textContent = "Warning: this link only works on this computer unless you host the page on a public or network-accessible address.";
-        } else {
-            shareWarning.textContent = "This link can be opened from other devices if the address is reachable.";
-        }
+        shareUrlInput.value = shareLink;
     }
 }
+
+function downloadQRCode(){
+    if (!qrCode) return;
+    const img = qrCode.querySelector("img");
+    const canvas = qrCode.querySelector("canvas");
+    let dataUrl = null;
+
+    if (img) {
+        dataUrl = img.src;
+    } else if (canvas) {
+        dataUrl = canvas.toDataURL("image/png");
+    }
+
+    if (!dataUrl) return;
+
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = "ameer-surprise-qr.png";
+    link.click();
+}
+
+if (copyLinkBtn) {
+    copyLinkBtn.addEventListener("click", ()=>{
+        navigator.clipboard.writeText(shareLink).then(() => {
+            alert("Surprise link copied to clipboard!");
+        }).catch(() => {
+            prompt("Copy the surprise link:", shareLink);
+        });
+    });
+}
+
+if (downloadQrBtn) {
+    downloadQrBtn.addEventListener("click", downloadQRCode);
+}
+
+createShareQRCode();
+
 
 startBtn.addEventListener("click",()=>{
 
@@ -187,23 +258,10 @@ backHomeBtn.addEventListener("click",()=>{
 
 });
 
-copyLinkBtn.addEventListener("click",()=>{
 
-    if(!sharedUrl) return;
-
-    navigator.clipboard.writeText(sharedUrl).then(()=>{
-        const originalText = copyLinkBtn.textContent;
-        copyLinkBtn.textContent = "Link Copied!";
-        setTimeout(()=>{
-            copyLinkBtn.textContent = originalText;
-        },2000);
-    }).catch(()=>{
-        alert("Copy failed. Please use the QR code instead.");
-    });
-
+window.addEventListener("DOMContentLoaded", () => {
+    // no QR code generation needed
 });
-
-window.addEventListener("DOMContentLoaded", createQRCode);
 
 
 // ==========================================
@@ -255,12 +313,16 @@ function typeWriter(){
 
         setTimeout(typeWriter,35);
 
+    } else {
+
+        nextBtn.disabled = false;
+
     }
 
 }
 
 // ==========================================
-// ENVELOPE
+ // ENVELOPE
 // ==========================================
 
 envelope.addEventListener("click",()=>{

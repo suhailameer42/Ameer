@@ -5,6 +5,9 @@
 
     <meta charset="UTF-8">
 
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Happy Girlfriend Day ❤️</title>
@@ -87,7 +90,7 @@
 
     <div class="home-content">
 
-        <h3>Hello ❤️</h3>
+        <h3>Asalamalikum ❤️</h3>
 
         <h1>Happy Girlfriend Day</h1>
 
@@ -125,14 +128,22 @@
 
         <p>Scan this QR code or copy the link to open the surprise on another device.</p>
 
-        <div id="qrCode"></div>
+        <div class="scan-label">Scan Me</div>
+
+        <div id="qrCode" class="qr-code"></div>
 
         <div class="share-link">
-            <input id="shareUrlInput" readonly>
-            <p id="shareWarning"></p>
+            <input id="shareUrlInput" type="text" readonly>
+            <div class="qr-actions">
+                <button id="copyLinkBtn">Copy Link</button>
+                <button id="downloadQrBtn">Download QR</button>
+            </div>
         </div>
 
-        <button id="copyLinkBtn">Copy Link</button>
+        <div class="share-message">
+            <p>Use this QR code from any phone or network.</p>
+            <p>The surprise opens immediately when scanned.</p>
+        </div>
 
         <button id="backHomeBtn">Back Home</button>
 
@@ -193,6 +204,9 @@
     </div>
 
 </section>
+
+
+
 
 <!-- ========================================= -->
 <!-- GALLERY PAGE -->
@@ -327,9 +341,7 @@
 
 <!-- ========================================= -->
 <!-- JAVASCRIPT -->
-<!-- ========================================= -->
-
-<script src="script.js"></script>
+    <script src="script.js?v=20260801-2"></script>
 
 </body>
 </html>
